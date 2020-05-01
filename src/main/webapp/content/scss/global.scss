@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/functions';
 @import '~bootswatch/dist/sketchy/variables';
 @import '~bootstrap/scss/variables';
+@import 'paper-kit';
 
 /* ==============================================================
 Bootstrap tweaks
@@ -52,7 +53,7 @@ Generic styles
 }
 
 .pad {
-  padding: 10px;
+  padding: 0;
 }
 
 .w-40 {

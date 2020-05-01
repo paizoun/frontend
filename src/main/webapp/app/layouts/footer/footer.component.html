@@ -1,3 +1,24 @@
-<div class="footer">
-    <p jhiTranslate="footer">This is your footer</p>
-</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a>Team Developer</a></li>
+                    <li><a>Blog</a></li>
+                    <li><a>Licenses</a></li>
+                    <li *ngFor="let language of languages">
+                        <a  [jhiActiveMenu]="languages" href="javascript:void(0);" (click)="changeLanguage(language);">{{ language | findLanguageFromKey }}</a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="credits ml-auto">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</footer>

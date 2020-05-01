@@ -47,7 +47,9 @@ spring:
       contactPoints: localhost
       protocolVersion: V4
       compression: LZ4
-      keyspaceName: Paizoun
+      keyspaceName: Authentication
+      username: cassandra
+      password: cassandra
   mail:
     host: localhost
     port: 25

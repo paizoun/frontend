@@ -2,17 +2,22 @@
 
         <div class="container">
             <div class="motto text-center">
-                <h1 jhiTranslate="home.title">Welcome, Java Hipster!</h1>
-                <h3  jhiTranslate="home.subtitle">Start designing your landing page here.</h3>
+                <h1 jhiTranslate="home.title">Explora tus limites</h1>
+                <h3  jhiTranslate="home.subtitle">¡Nunca pares de jugar!</h3>
                 <br />
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</a>
-                <button type="button" class="btn btn-outline-neutral btn-round">Download</button>
+
                 <div [ngSwitch]="isAuthenticated()" >
                     <div class="alert alert-success" *ngSwitchCase="true">
                       <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
                       [translateValues]="{ username: account.login }">You are logged in as user "{{ account.login }}".</span>
                     </div>
+
+                    <div *ngSwitchCase="false">
+                        
+                        <button type="button" class="btn btn-outline-neutral btn-round" (click)="login()" id="login"jhiTranslate="global.menu.account.login">SING IN</button>
+                    </div>
                 </div>
+
             </div>
         </div>
 </div>

@@ -1,6 +1,6 @@
 .modal-header {
-  border-bottom: 1px solid $medium-gray;
-  padding: 20px;
+  border-bottom: 0px solid $medium-gray;
+  padding: 10px;
   text-align: center;
   display: block !important;
 
@@ -11,7 +11,7 @@
     }
   }
   .modal-title {
-    color: $black-color;
+    color: $white-bg;
   }
   button.close {
     margin-top: -45px;

@@ -14,6 +14,8 @@ export class LoginModalComponent implements AfterViewInit {
   username?: ElementRef;
 
   authenticationError = false;
+  focus = false;
+  focus1 = false;
 
   loginForm = this.fb.group({
     username: [''],

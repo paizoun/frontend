@@ -15,4 +15,8 @@ export class FooterComponent {
   changeLanguage(languageKey: string): void {
     this.languageService.changeLanguage(languageKey);
   }
+
+  test: Date = new Date();
+
+
 }

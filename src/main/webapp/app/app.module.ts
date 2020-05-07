@@ -8,6 +8,7 @@ import { PaizounAppRoutingModule } from './app-routing.module';
 import { PaizounHomeModule } from './home/home.module';
 import { PaizounEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
+import { PaizounMenuModule } from './menu/menu.module';
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
@@ -23,7 +24,8 @@ import { ErrorComponent } from './layouts/error/error.component';
     PaizounHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     PaizounEntityModule,
-    PaizounAppRoutingModule
+    PaizounAppRoutingModule,
+    PaizounMenuModule
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent]

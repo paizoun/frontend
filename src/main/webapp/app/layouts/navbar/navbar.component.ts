@@ -113,6 +113,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  isHome(): boolean {
+    let titlee = this.location.prepareExternalUrl(this.location.path());
+    if (titlee.charAt(0).startsWith('#')) {
+      titlee = titlee.slice(1);
+    }
+    return titlee === '';
+  }
+
   isDocumentation(): boolean {
     let titlee = this.location.prepareExternalUrl(this.location.path());
     if (titlee.charAt(0).startsWith('#')) {
@@ -126,7 +134,7 @@ export class NavbarComponent implements OnInit {
     if (titlee.charAt(0).startsWith('#')) {
       titlee = titlee.slice(1);
     }
-    return titlee === '/signup';
+    return titlee === '/account/register';
   }
 
   isSignIn(): boolean {

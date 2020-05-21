@@ -1,0 +1,29 @@
+{
+    "name": "TeamUser",
+    "fields": [
+        {
+            "fieldName": "userLogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teamId",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "joinDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200512020500",
+    "entityTableName": "team_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

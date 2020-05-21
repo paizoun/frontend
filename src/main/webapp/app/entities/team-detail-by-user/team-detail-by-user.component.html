@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="paizounApp.teamDetailByUser.home.title">Team Detail By Users</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-team-detail-by-user" [routerLink]="['/team-detail-by-user/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="paizounApp.teamDetailByUser.home.createLabel">
+            Create a new Team Detail By User
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="teamDetailByUsers?.length === 0">
+        <span jhiTranslate="paizounApp.teamDetailByUser.home.notFound">No teamDetailByUsers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="teamDetailByUsers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.userLogin">User Login</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.teamId">Team Id</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.teamName">Team Name</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.teamShell">Team Shell</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.teamScore">Team Score</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.teamDetailByUser.userJoinDate">User Join Date</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let teamDetailByUser of teamDetailByUsers ;trackBy: trackId">
+                    <td><a [routerLink]="['/team-detail-by-user', teamDetailByUser.id, 'view']">{{ teamDetailByUser.id }}</a></td>
+                    <td>{{ teamDetailByUser.userLogin }}</td>
+                    <td>{{ teamDetailByUser.teamId }}</td>
+                    <td>{{ teamDetailByUser.teamName }}</td>
+                    <td>{{ teamDetailByUser.teamShell }}</td>
+                    <td>{{ teamDetailByUser.teamScore }}</td>
+                    <td>{{ teamDetailByUser.userJoinDate | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/team-detail-by-user', teamDetailByUser.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/team-detail-by-user', teamDetailByUser.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(teamDetailByUser)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "paizounApp": {
+    "teamDetailByUser": {
+      "home": {
+        "title": "Team Detail By Users",
+        "createLabel": "Crear nuevo Team Detail By User",
+        "createOrEditLabel": "Crear o editar Team Detail By User",
+        "notFound": "Ningún Team Detail By Users encontrado"
+      },
+      "created": "Un nuevo Team Detail By User ha sido creado con el identificador {{ param }}",
+      "updated": "Un Team Detail By User ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Team Detail By User ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Team Detail By User {{ id }}?"
+      },
+      "detail": {
+        "title": "Team Detail By User"
+      },
+      "userLogin": "User Login",
+      "teamId": "Team Id",
+      "teamName": "Team Name",
+      "teamShell": "Team Shell",
+      "teamScore": "Team Score",
+      "userJoinDate": "User Join Date"
+    }
+  }
+}

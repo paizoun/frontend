@@ -1,0 +1,144 @@
+<div class="main">
+    <div class="container">
+        <div class="row justify-content-center pb-lg-4">
+            <div class="col-lg-10">
+                <div style="margin-top: 10%;" class="pt-lg-2">
+                    <!--<div *ngIf="team">
+                        <h2>
+                            <span jhiTranslate="paizounApp.team.name"></span> {{ team.name }}
+                        </h2>
+
+                        <hr>
+
+                        <jhi-alert-error></jhi-alert-error>
+
+                        <dl class="row-md jh-entity-details">
+                            <dt><span jhiTranslate="paizounApp.team.name">Name</span></dt>
+                            <dd>
+                                <span>{{ team.name }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.description">Description</span></dt>
+                            <dd>
+                                <span>{{ team.description }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.shell">Shell</span></dt>
+                            <dd>
+                                <span>{{ team.shell }}</span>
+                            </dd>
+                            <img src={`data:image/png;base64,${team.shell}`} />
+                            <dt><span jhiTranslate="paizounApp.team.createTeamDate">Create Team Date</span></dt>
+                            <dd>
+                                <span>{{ team.createTeamDate | date: 'yyyy-MM-dd' }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.userLogin">User Login</span></dt>
+                            <dd>
+                                <span>{{ team.userLogin }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.lastUserLogin">Last User Login</span></dt>
+                            <dd>
+                                <span>{{ team.lastUserLogin }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.quantity">Quantity</span></dt>
+                            <dd>
+                                <span>{{ team.quantity }}</span>
+                            </dd>
+                            <dt><span jhiTranslate="paizounApp.team.score">Score</span></dt>
+                            <dd>
+                                <span>{{ team.score }}</span>
+                            </dd>
+                        </dl>
+
+                        <button type="submit"
+                                (click)="previousState()"
+                                class="btn btn-info">
+                            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                        </button>
+
+                        <button type="button"
+                                [routerLink]="['/team', team.id, 'edit']"
+                                class="btn btn-primary">
+                            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                    </div>-->
+
+                    <div *ngIf="team">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <img class="card-img-top" src="../../../content/img/home/team.jpg" alt="Card image cap">
+                                    <div class="card-body">
+
+                                        <h4 class="card-title">{{ team.name }} <span [routerLink]="['/team', team.id, 'edit']" class="badge badge-primary" style="cursor: pointer">Edit</span></h4>
+                                        <br>
+                                        <small> {{ team.createTeamDate | date: 'yyyy-MM-dd' }} </small>
+
+                                        <div>
+                                            <i class="material-icons starFullTeam starTeamSize">stars</i>
+                                            <i class="material-icons starFullTeam starTeamSize">stars</i>
+                                            <i class="material-icons starFullTeam starTeamSize">stars</i>
+                                            <i class="material-icons starFullTeam starTeamSize">stars</i>
+                                            <i class="material-icons starTeamSize">stars</i>
+                                        </div>
+
+                                        <p class="card-text">{{ team.description }}</p>
+                                        <hr>
+                                        <h4 class="card-title"> Team Members </h4>
+
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="card">
+                                                    <img class="card-img-top" src="../../../content/img/soccer-player.jpg" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="text-lg-center">
+                                                            <h5 class="card-title">Felipe</h5>
+                                                            <h6 class="card-subtitle">Goalkeeper</h6>
+                                                            <div>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons">stars</i>
+                                                                <i class="material-icons">stars</i>
+                                                            </div>
+                                                            <a href="#" class="card-link">View Profile</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="card">
+                                                    <img class="card-img-top" src="../../../content/img/soccer-player.jpg" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="text-lg-center">
+                                                            <h5 class="card-title">Carlos</h5>
+                                                            <h6 class="card-subtitle">Forward</h6>
+                                                            <div>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons starFullTeam">stars</i>
+                                                                <i class="material-icons">stars</i>
+                                                                <i class="material-icons">stars</i>
+                                                            </div>
+                                                            <a href="#" class="card-link">View Profile</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit"
+                                                (click)="previousState()"
+                                                class="btn btn-info">
+                                            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

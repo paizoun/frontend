@@ -1,0 +1,26 @@
+
+entity TypeField {
+	typeField String required,
+    numberTeamPlayers Integer
+}
+
+entity Field {
+	name String required,
+    description String,
+    direction String,
+    location String required, /*MODIFICAR set<text>*/
+    createDate Instant required,
+    typeField String required,
+    numberTeamPlayers Integer,
+    image ByteBuffer, /*VER OPCION DE CARRUCEL*/
+    scoreField Integer,
+    availability Boolean
+}
+
+entity ScoreFieldByUser {
+    userLogin String required,
+    fieldId UUID required,
+    fieldName String required,
+    score Integer,
+    scoreDate Instant required
+}

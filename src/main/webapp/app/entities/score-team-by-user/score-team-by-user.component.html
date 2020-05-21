@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="paizounApp.scoreTeamByUser.home.title">Score Team By Users</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-score-team-by-user" [routerLink]="['/score-team-by-user/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="paizounApp.scoreTeamByUser.home.createLabel">
+            Create a new Score Team By User
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="scoreTeamByUsers?.length === 0">
+        <span jhiTranslate="paizounApp.scoreTeamByUser.home.notFound">No scoreTeamByUsers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="scoreTeamByUsers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.scoreTeamByUser.userLogin">User Login</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.scoreTeamByUser.teamId">Team Id</span></th>
+                    <th scope="col" ><span jhiTranslate="paizounApp.scoreTeamByUser.score">Score</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let scoreTeamByUser of scoreTeamByUsers ;trackBy: trackId">
+                    <td><a [routerLink]="['/score-team-by-user', scoreTeamByUser.id, 'view']">{{ scoreTeamByUser.id }}</a></td>
+                    <td>{{ scoreTeamByUser.userLogin }}</td>
+                    <td>{{ scoreTeamByUser.teamId }}</td>
+                    <td>{{ scoreTeamByUser.score }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/score-team-by-user', scoreTeamByUser.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/score-team-by-user', scoreTeamByUser.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(scoreTeamByUser)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

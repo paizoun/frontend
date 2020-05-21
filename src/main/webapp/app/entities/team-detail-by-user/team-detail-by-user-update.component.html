@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-team-detail-by-user-heading" jhiTranslate="paizounApp.teamDetailByUser.home.createOrEditLabel">Create or edit a Team Detail By User</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.userLogin" for="field_userLogin">User Login</label>
+                    <input type="text" class="form-control" name="userLogin" id="field_userLogin"
+                           formControlName="userLogin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.teamId" for="field_teamId">Team Id</label>
+                    <input type="text" class="form-control" name="teamId" id="field_teamId"
+                           formControlName="teamId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.teamName" for="field_teamName">Team Name</label>
+                    <input type="text" class="form-control" name="teamName" id="field_teamName"
+                           formControlName="teamName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.teamShell" for="field_teamShell">Team Shell</label>
+                    <div>
+                        <div *ngIf="editForm.get('teamShell')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('teamShellContentType')!.value }}, {{ byteSize(editForm.get('teamShell')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({teamShell: null});editForm.patchValue({teamShellContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_teamShell" (change)="setFileData($event, 'teamShell', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="teamShell" id="field_teamShell"
+                           formControlName="teamShell"/>
+                    <input type="hidden" class="form-control" name="teamShellContentType" id="field_teamShellContentType"
+                           formControlName="teamShellContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.teamScore" for="field_teamScore">Team Score</label>
+                    <input type="number" class="form-control" name="teamScore" id="field_teamScore"
+                           formControlName="teamScore"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="paizounApp.teamDetailByUser.userJoinDate" for="field_userJoinDate">User Join Date</label>
+                    <div class="d-flex">
+                        <input id="field_userJoinDate" type="datetime-local" class="form-control" name="userJoinDate" formControlName="userJoinDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

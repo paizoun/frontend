@@ -1,0 +1,142 @@
+
+/************************************************** MODELO DE PARTIDOS ENTRE EQUIPOS (CERRADO) *************************************************/
+
+/*Pantalla para visualizar el detalle de los partidos*/
+entity Game {
+	/*gameId TIMEUUID*/
+	teamAId UUDI,
+    teamAName String,
+    teamBId UUID,
+    teamBName String, 
+    userLogin String, //Organizador del partido
+    fieldId UUID,
+    fieldName String,
+    location String required, /*MODIFICAR set<text>*/
+    gameCreateDate Instant,
+    gameUpdateDate Instant,
+    gameDeleteDate Instant,
+    gameDate Instant, //Fecha y hora del partido
+    status String,
+    isPrivate Boolean,
+    isPostponed Boolean,
+    isCanceled Boolean,
+    isRemoved Boolean
+}
+
+/*Vista general del resultado del partido*/
+entity GameScore {
+	/*id UUID*/
+    gameId UUID,
+    teamAId UUDI,
+    teamAName String,
+    taamAScore Integer,
+    teamBId UUID,
+    teamBName String, 
+    taamBScore Integer,    
+    fieldId UUID,
+    fieldName String  
+}
+
+/*Vista de goles marcados por usuario*/
+entity GameScoreByUser {
+	/*id TIMEUUID*/
+    gameId UUID,
+    gameScoreId UUID,
+    userLogin String,
+    goals Integer
+}
+
+/* Ver el estado de todos los usuarios por parido y equipo */
+entity StatusUserByGame {
+	/*idStatusUserByGame TIMEUUID*/
+	userLogin String, 
+    gameId UUID,
+    teamId UUID,
+    statusDate Instant,
+    status String,
+    isAccepted Boolean, 
+    isRejected Boolean,
+    isRemoved Boolean,
+    isLeave Boolean
+}
+
+/* Tabla de control para que no se repitan los usuarios por partido */
+entity UserByGame {
+	/*idUserByGame UUID*/
+    userLogin String, 
+    gameId UUID
+}
+
+/* Pantalla (historial) para ver los partidos por usuario, cancha y equipo */
+entity UserTeamByGame {
+	gameId UUID,
+	userLogin String,
+    teamAId UUDI,
+    teamAName String,
+    teamBId UUID,
+    teamBName String,
+    fieldId UUID,
+    fieldName String,
+    gameDate Instant,
+    status String, // Literal del estado del partido
+    gameScoreId UUID
+}
+
+/* Tabla de control de los estados de los partidos */
+entity StatusGame {
+	/*idStatusGame UUID*/
+	status String
+}
+
+/************************************************** MODELO DE PARTIDOS SALA (ABIERTA) *************************************************/
+
+/* Vista de una sala abierta */
+entity GameLobby {
+	/*idGameLobby TIMEUUID*/
+    gameName String,
+	fieldId UUID,
+    fieldName String,
+    location String required, /*MODIFICAR set<text>*/
+    userLogin String, //Creador de la sala
+    gameLobbyCreateDate Instant,
+    gameLobbyUpdateDate Instant,
+    gameLobbyDeleteDate Instant,
+    gameLobbyDate Instant, //Fecha y hora del partido
+    status String,
+    isPrivate Boolean,
+    isPostponed Boolean,
+    isCanceled Boolean,
+    isRemoved Boolean,
+    isFull Boolean
+}
+
+/* Vista de los usuarios que hayan ingresado a una sala abierta con sus respectivos equipos */
+entity UserByGameLobby {
+	/*idUserByGameLobby TIMEUUID*/
+    userLogin String,
+    gameLobbyId UUID,
+    joinUserDate Instant,
+    isTeamA Boolean,
+    isTeamB Boolean,
+    userStatus String,
+    isRemoved Boolean,
+    isLeave Boolean
+}
+
+/*Tabla de control para que no se repita un usuario por sala*/
+entity GameLobbyByUser {
+	/*id UUID*/
+    gameLobbyId UUID,
+    userLogin String
+}
+
+/* Tabla de control de los estados de los usuarios en los partidos */
+entity UserStatusGame {
+	/*idUserStatusGame UUID*/
+    status String
+}
+
+/*
+	TENER EN CUENTA QUE SE PUEDE DAR EL CASO EN EL QUE SE ENVIEN SOLICITUDES PARA EL INGRESO A LAS SALAS, PERO ESE PROCESO SE HACE 
+	A TRAVES DE LAS NOTIFICACIONES 
+*/

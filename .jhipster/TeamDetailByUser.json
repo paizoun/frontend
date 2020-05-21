@@ -1,0 +1,41 @@
+{
+    "name": "TeamDetailByUser",
+    "fields": [
+        {
+            "fieldName": "userLogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teamId",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "teamName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teamShell",
+            "fieldType": "ByteBuffer"
+        },
+        {
+            "fieldName": "teamScore",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "userJoinDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200512020600",
+    "entityTableName": "team_detail_by_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="teamDetailByUser">
+            <h2><span jhiTranslate="paizounApp.teamDetailByUser.detail.title">Team Detail By User</span> {{ teamDetailByUser.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.userLogin">User Login</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.userLogin }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.teamId">Team Id</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.teamId }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.teamName">Team Name</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.teamName }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.teamShell">Team Shell</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.teamShell }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.teamScore">Team Score</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.teamScore }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.teamDetailByUser.userJoinDate">User Join Date</span></dt>
+                <dd>
+                    <span>{{ teamDetailByUser.userJoinDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/team-detail-by-user', teamDetailByUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

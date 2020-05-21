@@ -7,6 +7,10 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "team": "Team",
+        "teamUser": "Team User",
+        "teamDetailByUser": "Team Detail By User",
+        "scoreTeamByUser": "Score Team By User",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

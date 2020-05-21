@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scoreTeamByUser">
+            <h2><span jhiTranslate="paizounApp.scoreTeamByUser.detail.title">Score Team By User</span> {{ scoreTeamByUser.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="paizounApp.scoreTeamByUser.userLogin">User Login</span></dt>
+                <dd>
+                    <span>{{ scoreTeamByUser.userLogin }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.scoreTeamByUser.teamId">Team Id</span></dt>
+                <dd>
+                    <span>{{ scoreTeamByUser.teamId }}</span>
+                </dd>
+                <dt><span jhiTranslate="paizounApp.scoreTeamByUser.score">Score</span></dt>
+                <dd>
+                    <span>{{ scoreTeamByUser.score }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/score-team-by-user', scoreTeamByUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

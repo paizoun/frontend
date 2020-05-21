@@ -1,0 +1,41 @@
+
+entity Team {
+ 	/*id UUID,*/
+	name String,
+    description String,
+    shell ByteBuffer,
+    createTeamDate Instant,
+    userLogin String,  /*CAPITAN*/
+    lastUserLogin String, /*ULTIMO CAPITAN*/
+    quantity Integer,
+    score Integer
+}
+
+entity TeamUser {
+	/*id TIMEUUID,*/
+	userLogin String,
+    teamId UUID, /*LLAVE DE PARTICIÓN*/
+    joinDate Instant
+}
+
+/*LLAVE COMPUESTA (userLogin, teamId)*/
+entity TeamDetailByUser {
+	/*id TIMEUUID,*/
+	userLogin String,
+    teamId UUID, /*LLAVE DE PARTICIÓN*/
+    teamName String,
+    teamShell ByteBuffer,
+    teamScore Integer,
+    userJoinDate Instant
+}
+
+/*LLAVE COMPUESTA (userLogin, teamId)*/
+entity ScoreTeamByUser {
+	/*id TIMEUUID,*/
+    userLogin String,
+    teamId UUID, /*LLAVE DE PARTICIÓN*/
+    score Integer
+}
+
+
+

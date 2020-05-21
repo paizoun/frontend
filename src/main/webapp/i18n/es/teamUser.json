@@ -1,0 +1,24 @@
+{
+  "paizounApp": {
+    "teamUser": {
+      "home": {
+        "title": "Team Users",
+        "createLabel": "Crear nuevo Team User",
+        "createOrEditLabel": "Crear o editar Team User",
+        "notFound": "Ningún Team Users encontrado"
+      },
+      "created": "Un nuevo Team User ha sido creado con el identificador {{ param }}",
+      "updated": "Un Team User ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Team User ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Team User {{ id }}?"
+      },
+      "detail": {
+        "title": "Team User"
+      },
+      "userLogin": "User Login",
+      "teamId": "Team Id",
+      "joinDate": "Join Date"
+    }
+  }
+}

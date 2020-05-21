@@ -1,0 +1,17 @@
+entity PlayerScoreByUser{
+userLogin String required,
+Technique Long min(1) max(10),
+Tactic Long min(1) max(10),
+Fellowship Long min(1) max(10),
+Physical Long min(1) max(10),
+IdPlayerScore Long min(1) max(10)
+}
+
+PlayerScore(){
+userLogin String required,
+Technique Long min(1) max(10),
+Tactic Long min(1) max(10),
+Fellowship Long min(1) max(10),
+Physical Long min(1) max(10),
+}
+

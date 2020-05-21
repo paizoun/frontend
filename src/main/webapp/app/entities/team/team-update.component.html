@@ -1,0 +1,93 @@
+<div class="main">
+    <div class="container">
+        <div class="row justify-content-center pb-lg-4">
+            <div class="col-10">
+                <div style="margin-top: 10%;" class="pt-lg-2">
+                    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                        <h2 id="jhi-team-heading" jhiTranslate="paizounApp.team.home.createOrEditLabel">Create or edit a Team</h2>
+
+                        <div>
+                            <jhi-alert-error></jhi-alert-error>
+
+                            <!--<div class="form-group" [hidden]="!editForm.get('id')!.value">
+                                <label for="id" jhiTranslate="global.field.id">ID</label>
+                                <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                            </div>-->
+
+                            <div class="form-group">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.name" for="field_name">Name</label>
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       formControlName="name"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.description" for="field_description">Description</label>
+                                <input type="text" class="form-control" name="description" id="field_description"
+                                       formControlName="description"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.shell" for="field_shell">Shell</label>
+                                <div>
+                                    <div *ngIf="editForm.get('shell')!.value" class="form-text text-danger clearfix">
+                                        <span class="pull-left">{{ editForm.get('shellContentType')!.value }}, {{ byteSize(editForm.get('shell')!.value) }}</span>
+                                        <button type="button" (click)="editForm.patchValue({shell: null});editForm.patchValue({shellContentType: null});"
+                                                class="btn btn-secondary btn-xs pull-right">
+                                            <fa-icon icon="times"></fa-icon>
+                                        </button>
+                                    </div>
+                                    <input type="file" id="file_shell" (change)="setFileData($event, 'shell', false)" jhiTranslate="entity.action.addblob"/>
+                                </div>
+                                <input type="hidden" class="form-control" name="shell" id="field_shell"
+                                       formControlName="shell"/>
+                                <input type="hidden" class="form-control" name="shellContentType" id="field_shellContentType"
+                                       formControlName="shellContentType" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.createTeamDate" for="field_createTeamDate">Create Team Date</label>
+                                <div class="d-flex">
+                                    <input id="field_createTeamDate" type="datetime-local" class="form-control" name="createTeamDate" formControlName="createTeamDate" placeholder="YYYY-MM-DD HH:mm" disabled/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" *ngIf="isNewTeam()">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.userLogin" for="field_userLogin">User Login</label>
+                                <input type="text" class="form-control" name="userLogin" id="field_userLogin"
+                                       formControlName="userLogin"/>
+                            </div>
+
+                            <div class="form-group" *ngIf="isNewTeam()">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.lastUserLogin" for="field_lastUserLogin">Last User Login</label>
+                                <input type="text" class="form-control" name="lastUserLogin" id="field_lastUserLogin"
+                                       formControlName="lastUserLogin"/>
+                            </div>
+
+                            <div class="form-group" *ngIf="isNewTeam()">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.quantity" for="field_quantity">Quantity</label>
+                                <input type="number" class="form-control" name="quantity" id="field_quantity"
+                                       formControlName="quantity"/>
+                            </div>
+
+                            <div class="form-group" *ngIf="isNewTeam()">
+                                <label class="form-control-label" jhiTranslate="paizounApp.team.score" for="field_score">Score</label>
+                                <input type="number" class="form-control" name="score" id="field_score"
+                                       formControlName="score"/>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                                <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                            </button>
+
+                            <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                                <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

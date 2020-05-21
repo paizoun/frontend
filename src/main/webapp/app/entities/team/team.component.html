@@ -1,0 +1,101 @@
+<div class="main">
+    <div class="container">
+        <div class="row justify-content-center pb-lg-3">
+            <div class="col-lg-11">
+                <div style="margin-top: 10%;" class="pt-lg-2">
+                    <h2 id="page-heading">
+                        <span jhiTranslate="paizounApp.team.home.title">Teams</span>
+
+                        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-team" [routerLink]="['/team/new']">
+                            <fa-icon icon="plus"></fa-icon>
+                            <span  jhiTranslate="paizounApp.team.home.createLabel">
+                    Create a new Team
+                    </span>
+                        </button>
+                    </h2>
+
+                    <jhi-alert-error></jhi-alert-error>
+
+                    <jhi-alert></jhi-alert>
+
+                    <div class="alert alert-warning" id="no-result" *ngIf="teams?.length === 0">
+                        <span jhiTranslate="paizounApp.team.home.notFound">No teams found</span>
+                    </div>
+
+                    <hr>
+                    <!--<div class="table-responsive" id="entities" *ngIf="teams?.length > 0">
+                        <table class="table table-striped" aria-describedby="page-heading">
+                            <thead>
+                            <tr>
+                                <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.name">Name</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.description">Description</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.shell">Shell</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.createTeamDate">Create Team Date</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.userLogin">User Login</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.lastUserLogin">Last User Login</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.quantity">Quantity</span></th>
+                                <th scope="col" ><span jhiTranslate="paizounApp.team.score">Score</span></th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let team of teams ;trackBy: trackId">
+                                <td><a [routerLink]="['/team', team.id, 'view']">{{ team.id }}</a></td>
+                                <a a [routerLink]="['/team', team.id, 'view']"><td>{{ team.name }}</td></a>
+                                <td>{{ team.description }}</td>
+                                <td>{{ team.shell }}</td>
+                                <td>{{ team.createTeamDate | date:'medium' }}</td>
+                                <td>{{ team.userLogin }}</td>
+                                <td>{{ team.lastUserLogin }}</td>
+                                <td>{{ team.quantity }}</td>
+                                <td>{{ team.score }}</td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button type="submit"
+                                                [routerLink]="['/team', team.id, 'view']"
+                                                class="btn btn-info btn-sm">
+                                            <fa-icon icon="eye"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                        </button>
+
+                                        <button type="submit"
+                                                [routerLink]="['/team', team.id, 'edit']"
+                                                class="btn btn-primary btn-sm">
+                                            <fa-icon icon="pencil-alt"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                        </button>
+
+                                        <button type="submit" (click)="delete(team)"
+                                                class="btn btn-danger btn-sm">
+                                            <fa-icon icon="times"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>-->
+
+                    <div *ngIf="teams?.length > 0">
+                        <div class="row">
+
+                            <div class="col-lg-4" *ngFor="let team of teams ;trackBy: trackId">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="../../../content/img/home/team.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ team.name }}</h5>
+                                        <p class="card-text">{{ team.description }}</p>
+                                        <a [routerLink]="['/team', team.id, 'view']" class="btn btn-info">View Team</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

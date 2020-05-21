@@ -1,0 +1,24 @@
+{
+  "paizounApp": {
+    "scoreTeamByUser": {
+      "home": {
+        "title": "Score Team By Users",
+        "createLabel": "Crear nuevo Score Team By User",
+        "createOrEditLabel": "Crear o editar Score Team By User",
+        "notFound": "Ningún Score Team By Users encontrado"
+      },
+      "created": "Un nuevo Score Team By User ha sido creado con el identificador {{ param }}",
+      "updated": "Un Score Team By User ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Score Team By User ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Score Team By User {{ id }}?"
+      },
+      "detail": {
+        "title": "Score Team By User"
+      },
+      "userLogin": "User Login",
+      "teamId": "Team Id",
+      "score": "Score"
+    }
+  }
+}
